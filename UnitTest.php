@@ -1,27 +1,9 @@
 <?php
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestSuite;
 
-class MultipleDependenciesTest extends TestCase
+class NoAssertTest extends PHPUnit_Framework_TestSuite
 {
-    public function testProducerFirst()
-    {
-        $this->assertTrue(true);
-        return 'first';
-    }
-
-    public function testProducerSecond()
-    {
-        $this->assertTrue(true);
-        return 'second';
-    }
-
-    /**
-     * @depends testProducerFirst
-     * @depends testProducerSecond
-     */
-    public function testConsumer($a, $b)
-    {
-        $this->assertSame('first', $a);
-        $this->assertSame('second', $b);
+    function testWithoutAssertions() {
+        $x = 5;
     }
 }
